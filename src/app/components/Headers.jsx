@@ -1,20 +1,28 @@
+"use client";
+import Cookies from "js-cookie";
 import Link from "next/link";
-import React from "react";
+
+import { usePathname, useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 const Headers = () => {
-  //       const [isAuth, setIsAuth] = useState(false);
-  //   const router = useRouter();
+  const pathname = usePathname();
+  const [isAuth, setIsAuth] = useState(() => !!Cookies.get("auth"));
+  const router = useRouter();
+  useEffect(() => {
+    const checkAuth = () => {
+      const auth = Cookies.get("auth");
+      setIsAuth(Boolean(auth));
+    };
 
-  //   useEffect(() => {
-  //     const auth = Cookies.get("auth");
-  //     setIsAuth(!!auth);
-  //   }, []);
+    checkAuth();
+  }, [pathname]);
 
-  //   const handleLogout = () => {
-  //     Cookies.remove("auth");
-  //     setIsAuth(false);
-  //     router.push("/login");
-  //   };
+  const handleLogout = () => {
+    Cookies.remove("auth");
+    setIsAuth(false);
+    router.push("/login");
+  };
   return (
     <nav className="w-full bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -33,30 +41,23 @@ const Headers = () => {
             Items
           </Link>
 
-          {/* {!isAuth ? (
+          {!isAuth ? (
             <Link
               href="/login"
-              className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600"
+              className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 cursor-pointer"
             >
               Login
             </Link>
           ) : (
             <>
-              <Link
-                href="/add-item"
-                className="hover:text-orange-600"
-              >
-                Add Item
-              </Link>
-
               <button
                 onClick={handleLogout}
-                className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900"
+                className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 cursor-pointer"
               >
                 Logout
               </button>
             </>
-          )} */}
+          )}
         </div>
       </div>
     </nav>

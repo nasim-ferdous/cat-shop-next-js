@@ -1,11 +1,11 @@
 import Image from "next/image";
-import Hero from "./components/Hero";
-import FeaturedItems from "./components/FeaturedItems";
-import WhyChooseUs from "./components/WhyChooseUs";
-import Categories from "./components/Categories";
-import HowItWorks from "./components/HowItWorks";
-import Testimonials from "./components/Testimonials";
-import CallToAction from "./components/CallToAction";
+import Hero from "./components/home/Hero";
+import FeaturedItems from "./components/home/FeaturedItems";
+import WhyChooseUs from "./components/home/WhyChooseUs";
+import Categories from "./components/home/Categories";
+import HowItWorks from "./components/home/HowItWorks";
+import Testimonials from "./components/home/Testimonials";
+import CallToAction from "./components/home/CallToAction";
 
 export default function Home() {
   return (
