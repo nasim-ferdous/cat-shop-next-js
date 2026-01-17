@@ -1,8 +1,9 @@
 import Link from "next/link";
 import React from "react";
-import CatCard from "../components/CatCard";
 
-const ItemsPage = () => {
+const ItemDetailPage = async ({ params }) => {
+  const { id } = await params;
+
   const cats = [
     {
       _id: "1",
@@ -125,18 +126,58 @@ const ItemsPage = () => {
       stock: 2,
     },
   ];
+  const cat = cats.find((cat) => cat._id === id);
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-16">
-      <h1 className="text-3xl font-bold mb-10 text-center">Available Cats</h1>
+    <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="grid md:grid-cols-2 gap-10">
+        {/* Image */}
+        <img
+          src={cat.image}
+          alt={cat.name}
+          className="rounded-xl shadow-lg w-full h-[400px] object-cover"
+        />
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {cats.map((cat) => (
-          <CatCard key={cat._id} cat={cat}></CatCard>
-        ))}
+        {/* Details */}
+        <div>
+          <h1 className="text-4xl font-bold">{cat.name}</h1>
+          <p className="text-orange-500 text-2xl font-semibold mt-2">
+            ৳ {cat.price}
+          </p>
+
+          <p className="mt-4 text-gray-600">{cat.description}</p>
+
+          <div className="mt-6 space-y-2">
+            <p>
+              <strong>Breed:</strong> {cat.breed}
+            </p>
+            <p>
+              <strong>Age:</strong> {cat.age}
+            </p>
+            <p>
+              <strong>Gender:</strong> {cat.gender}
+            </p>
+            <p>
+              <strong>Stock:</strong> {cat.stock} available
+            </p>
+          </div>
+
+          <div className="mt-8 flex gap-4">
+            <Link
+              href="/items"
+              className="bg-gray-200 px-6 py-3 rounded hover:bg-gray-300"
+            >
+              Back to Items
+            </Link>
+
+            <button className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600">
+              Adopt Now
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default ItemsPage;
+export default ItemDetailPage;

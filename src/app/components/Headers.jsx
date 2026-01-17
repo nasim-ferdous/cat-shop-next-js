@@ -50,6 +50,12 @@ const Headers = () => {
             </Link>
           ) : (
             <>
+              <Link
+                href="/add-item"
+                className="hover:text-orange-600"
+              >
+                Add Item
+              </Link>
               <button
                 onClick={handleLogout}
                 className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 cursor-pointer"
