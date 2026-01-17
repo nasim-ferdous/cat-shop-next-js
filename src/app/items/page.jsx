@@ -3,7 +3,10 @@ import React from "react";
 import CatCard from "../components/CatCard";
 
 const ItemsPage = async () => {
-  const data = await fetch("http://localhost:3000/api/cats");
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+  const data = await fetch(`${baseUrl}/api/cats`, { cache: "no-store" });
+
   const cats = await data.json();
 
   return (

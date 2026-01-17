@@ -3,7 +3,11 @@ import React from "react";
 
 const ItemDetailPage = async ({ params }) => {
   const { id } = await params;
-  const data = await fetch(`http://localhost:3000/api/cats?id=${id}`);
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+  const data = await fetch(`${baseUrl}/api/cats?id=${id}`, {
+    cache: "no-store",
+  });
   const cat = await data.json();
 
   return (
