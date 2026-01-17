@@ -2,13 +2,13 @@
 import Cookies from "js-cookie";
 import Link from "next/link";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Headers = () => {
   const pathname = usePathname();
   const [isAuth, setIsAuth] = useState(() => !!Cookies.get("auth"));
-  const router = useRouter();
+
   useEffect(() => {
     const checkAuth = () => {
       const auth = Cookies.get("auth");
@@ -21,7 +21,6 @@ const Headers = () => {
   const handleLogout = () => {
     Cookies.remove("auth");
     setIsAuth(false);
-    router.push("/login");
   };
   return (
     <nav className="w-full bg-white shadow-md">
@@ -50,10 +49,7 @@ const Headers = () => {
             </Link>
           ) : (
             <>
-              <Link
-                href="/add-item"
-                className="hover:text-orange-600"
-              >
+              <Link href="/add-item" className="hover:text-orange-600">
                 Add Item
               </Link>
               <button

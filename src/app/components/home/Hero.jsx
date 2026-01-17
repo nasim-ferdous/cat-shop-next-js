@@ -22,7 +22,7 @@ const Hero = () => {
         </div>
 
         <img
-          src="https://images.unsplash.com/photo-1708444348494-eeb485f7c056?q=80&w=416&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1721466289028-0b6ec05aa771?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Cat"
           className="rounded-xl shadow-lg"
         />
