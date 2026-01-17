@@ -5,7 +5,6 @@ import CatCard from "../components/CatCard";
 const ItemsPage = async () => {
   const data = await fetch("http://localhost:3000/api/cats");
   const cats = await data.json();
-  console.log(cats);
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">

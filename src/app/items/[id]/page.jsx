@@ -5,7 +5,6 @@ const ItemDetailPage = async ({ params }) => {
   const { id } = await params;
   const data = await fetch(`http://localhost:3000/api/cats?id=${id}`);
   const cat = await data.json();
-  console.log(cat);
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
@@ -44,12 +43,12 @@ const ItemDetailPage = async ({ params }) => {
           <div className="mt-8 flex gap-4">
             <Link
               href="/items"
-              className="bg-gray-200 px-6 py-3 rounded hover:bg-gray-300"
+              className="bg-gray-200 px-6 py-3 rounded hover:bg-gray-300 cursor-pointer"
             >
               Back to Items
             </Link>
 
-            <button className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600">
+            <button className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 cursor-pointer">
               Adopt Now
             </button>
           </div>
