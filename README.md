@@ -2,6 +2,8 @@
 
 A full‑stack Cat Shop application built with Next.js (App Router) and a mock API using Next.js Route Handlers. Users can browse cats, view details, login using mock authentication, and add new items (protected route).
 
+🔗 **Live Site:** https://cat-shop-cyan.vercel.app/  
+
 🚀 Project Overview
 
 CatShop is a demo e‑commerce style project for learning full‑stack development with Next.js.
